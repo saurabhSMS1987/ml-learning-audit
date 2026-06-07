@@ -189,7 +189,7 @@ This approach ensures deep understanding, not just surface knowledge.
 ## 🔗 Connect with Me
 
 - **GitHub:** This repository (growing ML portfolio)
-- **LinkedIn:** [Share your learning journey]
+- **LinkedIn:** https://www.linkedin.com/in/saurabhshirgaokar/
 - Questions or feedback? Open an issue in this repo!
 
 ---
