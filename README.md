@@ -2,7 +2,7 @@
 
 **Goal:** Learn machine learning over 16 weeks to transition from data analyst to ML-focused role at Deloitte, specializing in **continuous audit analytics**.
 
-**Current Status:** Week 1 Foundations - COMPLETE ✅
+**Current Status:** Week 1 Complete ✅ | Weeks 2-16 In Progress 🚀
 
 ---
 
@@ -23,15 +23,17 @@ I'm passionate about transforming **Static Testing → Scalable, Continuous Audi
 
 ## 🎯 16-Week Roadmap
 
-### **Phase 1: Foundations (Weeks 1-4)** ✅ IN PROGRESS
-- **Week 1:** What is ML? Supervised vs Unsupervised ✅ COMPLETE
+### **Phase 1: Foundations (Weeks 1-4)** ✅ WEEK 1 COMPLETE
+- **Week 1:** What is ML? Supervised vs Unsupervised + Data Preprocessing ✅ COMPLETE
   - Day 1: ✅ Loaded audit data (776 firms, 39.3% high-risk)
   - Day 2: ✅ Mastered supervised vs unsupervised learning
   - Day 2: ✅ Discovered 39.99 Inherent_Risk difference
-  - Day 2: ✅ Analyzed top 3 differentiating features
-- Week 2: Data preprocessing & feature engineering (coming soon)
-- Week 3: Train-test split, overfitting, underfitting
-- Week 4: Model evaluation metrics
+  - Day 3: ✅ Data preprocessing (missing values, scaling)
+  - Day 3: ✅ Feature engineering (3 new features created)
+  - Day 3: ✅ Feature selection (significant features identified)
+- Week 2: Train-test split, overfitting, underfitting (coming soon)
+- Week 3: Model evaluation metrics
+- Week 4: Cross-validation
 
 ### **Phase 2: Core Algorithms (Weeks 5-8)**
 - Week 5: Linear & Logistic Regression
@@ -55,19 +57,23 @@ I'm passionate about transforming **Static Testing → Scalable, Continuous Audi
 
 ```
 ml-learning-audit/
-├── README.md (this file)
+├── README.md (this file - UPDATED)
 ├── requirements.txt
 ├── .gitignore
 ├── Week_1/
 │   ├── Day_1/
 │   │   ├── audit_data_exploration.ipynb
 │   │   └── findings.md
-│   └── Day_2/
-│       ├── Week_1_Day_2_Findings.md
-│       ├── Day_2_Complete_Summary.md
-│       ├── Hour_1_Summary.md
-│       ├── Hour_2_Findings.md
-│       └── (optional) Week_1_Day_2_Audit_Analysis.ipynb
+│   ├── Day_2/
+│   │   ├── Week_1_Day_2_Findings.md
+│   │   ├── Day_2_Complete_Summary.md
+│   │   ├── Hour_1_Summary.md
+│   │   └── Hour_2_Findings.md
+│   └── Day_3/ ⭐ NEW
+│       ├── Day_3_Findings.md
+│       ├── audit_risk_preprocessed.csv
+│       ├── audit_risk_engineered.csv
+│       └── audit_risk_final.csv
 ├── Week_2/ (coming soon)
 ├── datasets/
 │   └── README.md (how to get audit_risk.csv)
@@ -77,164 +83,252 @@ ml-learning-audit/
 
 ---
 
-## 🔑 Key Findings So Far
+## 🔑 Week 1 Key Findings Summary
 
-### **Week 1, Day 1 Summary**
+### **Day 1: Data Exploration & First Insights** ✅
 - **Dataset:** 776 firms from India's Auditor Office (2015-2016)
 - **High-risk firms:** 304 (39.3%)
 - **Low-risk firms:** 472 (60.7%)
-- **Surprise:** Expected ~10% high-risk, found 39.3% — reflects public sector audit realities
-- **Insight:** This is perfect for supervised learning
+- **Key Finding:** 39.3% high-risk rate (higher than expected ~10%) reflects public sector audit realities
+- **Impact:** Perfect dataset for supervised learning
 
-### **Week 1, Day 2 Summary** ⭐ NEW
-- **Mastered:** Supervised vs Unsupervised learning concepts
-- **Discovered:** High-risk firms have **39.99 HIGHER Inherent Risk scores**
+### **Day 2: Supervised vs Unsupervised Learning** ✅
+- **Concepts Mastered:** 
+  - Supervised Learning: Use labeled data to predict outcomes
+  - Unsupervised Learning: Discover patterns without labels
+- **Audit Examples Created:**
+  - Supervised: Revenue Testing (predict transaction risk)
+  - Unsupervised: Operating Expense Testing (find anomalies)
+- **Key Discovery:** High-risk firms have **39.99 HIGHER Inherent Risk scores** than low-risk
 - **Top 3 Differentiating Features:**
   1. Inherent_Risk (39.99 difference) ⭐ MOST POWERFUL
   2. Money_Value (significant difference)
   3. TOTAL (clear separation)
-- **Significance:** Clear, measurable patterns show supervised learning WILL work
-- **Application:** Single feature (Inherent_Risk) alone can predict firm risk
+- **Significance:** Clear patterns prove supervised learning WILL work
+
+### **Day 3: Data Preprocessing & Feature Engineering** ✅
+- **Missing Values Handled:** 1 value in Money_Value → Imputed with mean
+- **Outliers:** Retained (represent real audit risk patterns)
+- **Feature Scaling:** StandardScaler applied to Inherent_Risk, Money_Value, TOTAL
+  - Before: Different scales (1-801, 0-935, 0-1268)
+  - After: Standardized (-3 to +3, mean 0, std 1)
+- **New Features Created:**
+  1. Risk_Intensity (Inherent_Risk × Money_Value)
+  2. Audit_Burden (TOTAL / Inherent_Risk)
+  3. Risk_to_Total_Ratio (Inherent_Risk / TOTAL)
+- **Feature Selection:** Identified significant features via correlation analysis
+- **Datasets Created:**
+  - `audit_risk_preprocessed.csv` (clean & scaled)
+  - `audit_risk_engineered.csv` (with new features)
+  - `audit_risk_final.csv` (with selected features only)
 
 ---
 
 ## 💡 How This Connects to My Audit Work
 
-| My Current Role | What I'll Build with ML |
-|---|---|
-| Manual anomaly detection (60% catch rate) | Automated detection (95%+ accuracy) |
-| Sample-based testing (2% coverage) | Continuous testing (100% coverage) |
-| Static annual audits | Real-time risk assessment |
-| Rule-based flagging ("if X then Y") | Intelligent pattern recognition |
+| My Current Role | What I'll Build with ML | Week 1 Progress |
+|---|---|---|
+| Manual anomaly detection (60% catch rate) | Automated detection (95%+ accuracy) | ✅ Understanding how |
+| Sample-based testing (2% coverage) | Continuous testing (100% coverage) | ✅ Identified patterns |
+| Static annual audits | Real-time risk assessment | ✅ Data ready for models |
+| Rule-based flagging ("if X then Y") | Intelligent pattern recognition | ✅ Features engineered |
 
 ---
 
-## 📈 Progress Tracking
+## 📈 Week 1 Progress Tracking
 
-### Week 1: COMPLETE ✅
-- [x] Day 1: ML Fundamentals
-  - [x] Loaded 776-firm audit dataset
-  - [x] Found 39.3% high-risk finding
-  - [x] Explored basic statistics
-- [x] Day 2: Supervised vs Unsupervised
-  - [x] Watched 4 DeepLearning.AI videos
-  - [x] Created 2 detailed audit examples
-  - [x] Analyzed data patterns
-  - [x] Discovered 39.99 Inherent_Risk difference
-  - [x] Identified top 3 differentiating features
+### ✅ WEEK 1 COMPLETE
 
-### Week 2: Data Preprocessing (coming soon)
-- [ ] Feature scaling and normalization
-- [ ] Handling missing values
-- [ ] Feature engineering
-- [ ] Data preparation for modeling
+**Day 1 Achievements:**
+- [x] Loaded 776-firm audit dataset
+- [x] Found 39.3% high-risk insight
+- [x] Explored basic statistics
+- [x] Confirmed data quality
 
-### Week 3: Model Evaluation
-- [ ] Train-test split
-- [ ] Cross-validation
-- [ ] Overfitting and underfitting
+**Day 2 Achievements:**
+- [x] Watched 4 DeepLearning.AI videos on ML fundamentals
+- [x] Mastered supervised vs unsupervised learning
+- [x] Created 2 detailed audit examples
+- [x] Analyzed patterns in real data
+- [x] Discovered 39.99 Inherent_Risk difference
+- [x] Identified top 3 differentiating features
 
----
-
-## 🎓 Learning Resources
-
-### Paid Subscriptions
-- **DeepLearning.AI**: ML concept videos (15-20 mins each) ✅ USING
-- **DataCamp**: Interactive Python & ML coding (starting Week 2)
-
-### Free Resources
-- **StatQuest with Josh Starmer** (YouTube): Intuitive explanations
-- **Google Colab**: Free Jupyter notebook environment
-- **UCI ML Repository**: Real datasets including audit data
-
-### Dataset
-- **Audit Risk Dataset** (UCI ML Repository): 776 firms, 18 features, real audit data
-- Download: https://archive.ics.uci.edu/dataset/475/audit+data
+**Day 3 Achievements:**
+- [x] Watched 4 preprocessing videos (DeepLearning.AI + Krish Naik + YouTube)
+- [x] Assessed data quality (missing values, outliers, ranges)
+- [x] Handled missing values (mean imputation)
+- [x] Applied StandardScaler normalization
+- [x] Created 3 engineered features
+- [x] Selected significant features via correlation
+- [x] Exported 3 preprocessed datasets
 
 ---
 
-## 🚀 My Learning Approach
+## 🎓 Concepts Mastered (Week 1)
 
-**The Complete Cycle:**
-1. **Concept** (20 mins): Watch videos, understand theory
-2. **Example** (5 mins): Create audit-relevant use cases
-3. **Code** (15 mins): Load data, run analysis
-4. **Discovery** (10 mins): Find patterns and insights
-5. **Documentation** (10 mins): Record findings for portfolio
+**Machine Learning Fundamentals:**
+- ✅ Definition of machine learning
+- ✅ Supervised learning (labeled data, predict)
+- ✅ Unsupervised learning (unlabeled data, discover)
+- ✅ When to use each approach
+- ✅ Real audit applications for both
 
-This approach ensures deep understanding, not just surface knowledge.
+**Data Preprocessing:**
+- ✅ Missing value imputation strategies
+- ✅ Outlier detection and handling
+- ✅ Feature scaling (Standardization vs Normalization)
+- ✅ StandardScaler implementation
+- ✅ Why preprocessing matters
+
+**Feature Engineering:**
+- ✅ Creating new features from existing ones
+- ✅ Feature correlation analysis
+- ✅ Feature selection criteria
+- ✅ Why feature engineering improves models
+
+**Practical Python Skills:**
+- ✅ Pandas (loading, exploring, transforming data)
+- ✅ Scikit-learn (SimpleImputer, StandardScaler)
+- ✅ Numpy (numeric operations)
+- ✅ Matplotlib (data visualization)
 
 ---
 
 ## 📊 Learning Metrics
 
-**Week 1 Accomplishments:**
-- **276 minutes** invested (4.6 hours across 2 days)
-- **4 videos** watched and understood
-- **2 audit examples** created (revenue testing, expense testing)
-- **776 firms** analyzed
-- **39.99** Inherent_Risk difference discovered
-- **3 features** identified as differentiating
-- **2 GitHub commits** (one per day)
+**Time Investment:**
+- **Day 1:** 50 minutes
+- **Day 2:** 120 minutes
+- **Day 3:** 180 minutes
+- **Week 1 Total:** 350 minutes (5.8 hours)
+
+**Content Consumed:**
+- **12 videos** watched (various sources)
+- **3 datasets** created (raw, preprocessed, engineered)
 - **100% documentation** (every finding recorded)
 
 **GitHub Portfolio:**
-- Week 1 fully documented
-- 4 detailed markdown files
-- Complete learning journey visible
-- Professional presentation
+- **Week 1 fully documented** (9 files)
+- **3 audit datasets** (raw, processed, engineered)
+- **Professional presentation** ready for interviews
 
 ---
 
-## 🔗 Connect with Me
+## 🚀 Learning Quality: Beyond Just Watching
 
-- **GitHub:** This repository (growing ML portfolio)
-- **LinkedIn:** https://www.linkedin.com/in/saurabhshirgaokar/
-- Questions or feedback? Open an issue in this repo!
+**The Complete Learning Cycle:**
+1. ✅ **Concept** (videos): Understand theory
+2. ✅ **Example** (audit cases): Apply to real domain
+3. ✅ **Code** (Python): Hands-on practice
+4. ✅ **Discovery** (39.99 difference): Find insights
+5. ✅ **Documentation** (GitHub): Build portfolio
+
+**This approach = Deep understanding, not just surface knowledge**
 
 ---
 
-## 🎯 Why This Matters for My Career
+## 🔗 Technologies & Tools Used
 
-**Right now**, I:
-- Audit 2-3% of transactions (sampling constraints)
-- Manually identify risk patterns
-- Create dashboards and reports
-- Make judgment-based decisions
+**Learning Platforms:**
+- DeepLearning.AI (paid subscription)
+- YouTube (free videos)
+- Google Colab (free Jupyter notebooks)
 
-**With ML skills**, I can:
-- Audit 100% of transactions (continuous testing)
-- Automatically identify complex patterns
-- Build intelligent systems (not just dashboards)
-- Make data-driven recommendations
+**Python Libraries:**
+- **pandas** (data manipulation)
+- **numpy** (numeric computing)
+- **scikit-learn** (preprocessing & ML)
+- **matplotlib** (visualization)
 
-**This positions me for:** ML Engineer roles in audit tech, Deloitte's AI initiatives, or building the next generation of continuous audit systems.
+**Data Science Toolkit:**
+- Google Colab (cloud IDE)
+- GitHub (version control & portfolio)
+- UCI ML Repository (datasets)
 
 ---
 
 ## 📌 Updated: [Today's Date]
 
-**Last Update:** Week 1 Day 2 Complete
-- Added Day 2 learnings to roadmap
-- Updated key findings section
-- Documented 39.99 Inherent_Risk discovery
-- Added Week 1 Day 2 analysis details
-- Progress: Week 1 Foundations ✅ COMPLETE
+**Last Update:** Week 1 Complete ✅
+- Added Day 3: Preprocessing & Feature Engineering
+- Updated roadmap (Week 1 → ✅ COMPLETE)
+- Added 3 new datasets
+- Updated key findings with preprocessing results
+- Ready for Week 2: Train-Test Split & Model Evaluation
 
 ---
 
-## 🏆 Week 1 Achievement Unlocked
+## 🏆 Week 1 Achievement Summary
 
-You started not knowing what ML is. You're ending it with:
-- ✅ Understanding of supervised vs unsupervised learning
-- ✅ Real audit examples for each approach
-- ✅ Code that analyzes real data
-- ✅ Discovery of 39.99 Inherent_Risk difference
-- ✅ Professional GitHub documentation
-- ✅ Clear vision for continuous audit system
+**Started:**
+- Didn't know what ML was
+- Had raw audit data (776 firms)
 
-**That's not just learning—that's transformation.** 🚀
+**Ended:**
+- Understand supervised vs unsupervised learning
+- Know how to preprocess data professionally
+- Created 3 engineered features
+- Built clean dataset ready for modeling
+- 9 detailed documentation files
+- Professional GitHub portfolio started
+
+**That's a complete learning cycle from theory → practice → documentation!** 🎓
 
 ---
 
-*This repository is my public commitment to learning ML and building something meaningful in audit analytics.*
+## 🎯 What's Next (Week 2)
+
+**Week 2 Focus:** Train-Test Split & Model Evaluation
+- Split data into training (80%) and testing (20%)
+- Understand why this matters
+- Learn overfitting vs underfitting
+- Prepare for model building in Weeks 5-8
+
+**Expected by end of Week 2:**
+- [ ] Train-test split implemented
+- [ ] Cross-validation understood
+- [ ] Ready for Week 5 modeling
+
+---
+
+## 💭 Why This Matters for My Career
+
+**Right Now:**
+- Audit 2-3% of transactions (sampling constraints)
+- Manually identify risk patterns
+- Create dashboards and reports
+- Make judgment-based decisions
+
+**With ML Skills (Goal):**
+- Audit 100% of transactions (continuous testing)
+- Automatically identify complex patterns
+- Build intelligent systems (not just dashboards)
+- Make data-driven recommendations
+
+**This positions me for:**
+- ML Engineer roles in audit tech
+- Deloitte's AI initiatives
+- Building next-generation continuous audit systems
+
+---
+
+## 🤝 Open to Feedback
+
+- Questions about my learning approach?
+- Suggestions for improvement?
+- Open an issue in this repository!
+
+---
+
+## 📝 Learning Philosophy
+
+> *"The complete learning cycle is: Concept → Example → Code → Discovery → Documentation. Skip any step, and understanding suffers. Do all five, and mastery emerges."*
+
+This repository is my public commitment to that philosophy.
+
+---
+
+*Last Updated: [Today's Date]*  
+*Status: Week 1 Complete ✅ | Week 2 In Progress 🚀*
+
+*This is not just learning—this is building the foundation for meaningful ML work in audit.*
