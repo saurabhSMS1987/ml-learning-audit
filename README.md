@@ -306,8 +306,8 @@ print(model.summary())  # Detailed statistics!
 - Day 1: 50 minutes
 - Day 2: 120 minutes
 - Day 3: 180 minutes
-- Day 4: [Your time]
-- **Week 1 Total:** 350+ minutes (6+ hours)
+- Day 4: 60 minutes
+- **Week 1 Total:** 400+ minutes (6+ hours)
 
 **Content Consumed:**
 - 15+ videos watched (DeepLearning.AI, YouTube, Krish Naik)
